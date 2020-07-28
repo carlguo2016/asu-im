@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+message DataContent {
+  enum ActionType {
+    _ACTION_UNSPECIFIED = 0;    // 无效值
+    PING = 1;                   // ping
+    PONG = 2;                   // pong
+    CONNECT = 3;                // 连接
+    CHAT = 4;                   // 聊天
+    MSG_SIGN = 5;               // 消息签收
+    MSG_REVOKE = 6;             // 消息撤回
+    KICK_OUT = 7;               // 账号被顶
+    JOIN_GROUP = 8;             // 加入群
+    QUIT_GROUP = 9;             // 退出群
+    DISSOLVE_GROUP = 10;        // 解散群
+  }
+
+  enum ChatType {
+    _CHAT_UNSPECIFIED = 0;      // 无效值
+    C2C = 1;                    // 单聊
+    GROUP = 2;                  // 群聊
+  }
+
+  enum platformType {
+    _PLATFORM_UNSPECIFIED = 0;  // 无效值
+    WEB_H5 = 1;                 // 浏览器
+    WX_PROGRAM = 2;             // 微信小程序
+    ANDROID_APP = 3;            // 安卓APP
+    IOS_APP = 4;                // 苹果APP
+  }
+
+  ActionType action = 1;        // ActionType
+  ChatMsg chatMsg = 2;          // 消息，心跳｜连接，传null
+  ChatType type = 3;            // ChatType
+  platformType platform = 4;    // 平台
+  int64 groupId = 5;            // 群组Id，如果是C2C，传0
+}
+
+message ChatMsg {
+  enum MsgType {
+    _UNSPECIFIED = 0;           // 无效值
+    TEXT = 1;                   // 文字
+    PICTURE = 2;                // 图片
+    EMOJI = 3;                  // 表情
+    AUDIO = 4;                  // 语音
+    FILE = 5;                   // 文件
+  }
+
+  int64 msgId = 1;              // 消息ID
+  string fromId = 2;            // 发送人
+  string toId = 3;              // 接收人
+  string msg = 4;               // 消息
+  MsgType type = 5;             // MsgType
+  int32 seq = 6;                // 序号
+}

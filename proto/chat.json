@@ -1,0 +1,101 @@
+{
+  "nested": {
+    "DataContent": {
+      "fields": {
+        "action": {
+          "type": "ActionType",
+          "id": 1
+        },
+        "chatMsg": {
+          "type": "ChatMsg",
+          "id": 2
+        },
+        "type": {
+          "type": "ChatType",
+          "id": 3
+        },
+        "platform": {
+          "type": "platformType",
+          "id": 4
+        },
+        "groupId": {
+          "type": "int64",
+          "id": 5
+        }
+      },
+      "nested": {
+        "ActionType": {
+          "values": {
+            "_ACTION_UNSPECIFIED": 0,
+            "PING": 1,
+            "PONG": 2,
+            "CONNECT": 3,
+            "CHAT": 4,
+            "MSG_SIGN": 5,
+            "MSG_REVOKE": 6,
+            "KICK_OUT": 7,
+            "JOIN_GROUP": 8,
+            "QUIT_GROUP": 9,
+            "DISSOLVE_GROUP": 10
+          }
+        },
+        "ChatType": {
+          "values": {
+            "_CHAT_UNSPECIFIED": 0,
+            "C2C": 1,
+            "GROUP": 2
+          }
+        },
+        "platformType": {
+          "values": {
+            "_PLATFORM_UNSPECIFIED": 0,
+            "WEB_H5": 1,
+            "WX_PROGRAM": 2,
+            "ANDROID_APP": 3,
+            "IOS_APP": 4
+          }
+        }
+      }
+    },
+    "ChatMsg": {
+      "fields": {
+        "msgId": {
+          "type": "int64",
+          "id": 1
+        },
+        "fromId": {
+          "type": "string",
+          "id": 2
+        },
+        "toId": {
+          "type": "string",
+          "id": 3
+        },
+        "msg": {
+          "type": "string",
+          "id": 4
+        },
+        "type": {
+          "type": "MsgType",
+          "id": 5
+        },
+        "seq": {
+          "type": "int32",
+          "id": 6
+        }
+      },
+      "nested": {
+        "MsgType": {
+          "values": {
+            "_UNSPECIFIED": 0,
+            "TEXT": 1,
+            "PICTURE": 2,
+            "EMOJI": 3,
+            "AUDIO": 4,
+            "FILE": 5
+          }
+        }
+      }
+    }
+  }
+}

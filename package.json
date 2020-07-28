@@ -1,0 +1,10 @@
+{
+  "name": "asu-im",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "protobufjs": "^6.10.1"
+  },
+  "author": "carl",
+  "license": "ISC"
+}
