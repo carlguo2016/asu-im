@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "protobufjs": "^6.10.1"
+    "protobufjs": "^6.11.3"
   },
   "author": "carl",
   "license": "ISC"
